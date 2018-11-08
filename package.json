@@ -1,0 +1,27 @@
+{
+  "name": "defcode",
+  "version": "1.0.0",
+  "description": "Run a JS file's exported function with the contents of another file as its argument.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hgmelectronics/defcode.git"
+  },
+  "keywords": [
+    "codegen",
+    "loader"
+  ],
+  "author": "HGM Automotive Electronics",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hgmelectronics/defcode/issues"
+  },
+  "homepage": "https://github.com/hgmelectronics/defcode#readme",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "js-yaml": "^3.12.0"
+  }
+}
