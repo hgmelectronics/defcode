@@ -8,8 +8,8 @@ const os = require('os');
 if (require.main === module) {
     commander
         .usage('[options] <generator source file> ...')
-        .option('-d --def [def.yaml]')
-        .option('-o --output [outputfile]', 'Output file name; not valid with multiple generator sources')
+        .option('-d --def [def-file]', 'Definition file, parsed according to extension')
+        .option('-o --output [output-file]', 'Output file name; not valid with multiple generator sources')
         .parse(process.argv);
 
     if (commander.args.length < 1 || !commander.def || (commander.args.length > 1 && commander.output)) {
