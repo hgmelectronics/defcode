@@ -1,8 +1,11 @@
 {
   "name": "defcode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run a JS file's exported function with the contents of another file as its argument.",
   "main": "index.js",
+  "bin": {
+      "defcode": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
