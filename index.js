@@ -4,6 +4,31 @@ const commander = require('commander');
 const yaml = require('js-yaml');
 const fs = require('fs');
 const os = require('os');
+const path = require('path');
+const process = require('process');
+const yamlinc = require('yaml-include');
+
+generate = (def, generatorPath, output) => {
+    const generator = require(fs.realpathSync(generatorPath));
+    if (!generator) {
+        throw 'Could not require() ' + src;
+    }
+
+    const content = generator(def);
+
+    const target = output || src.replace(/\.[^.]*$/, ''); // strip final extension
+
+    content = content.replace(/\n/g, os.EOL);
+
+    const existing = fs.readFileSync(target, { encoding: 'utf8' });
+    if (existing === content) {
+        return 'upToDate';
+    }
+    else {
+        fs.writeFileSync(target, content, { encoding: 'utf8' });
+        return existing ? 'updated' : 'created';
+    }
+}
 
 if (require.main === module) {
     commander
@@ -22,7 +47,14 @@ if (require.main === module) {
             def = JSON.parse(def);
         }
         else if (/\.ya?ml$/i.exec(commander.def)) {
-            def = yaml.safeLoad(def);
+            const wd = process.cwd();
+            try {
+                process.chdir(path.dirname(commander.def));
+                def = yaml.safeLoad(def, { schema: yamlinc.YAML_INCLUDE_SCHEMA });
+            }
+            finally {
+                process.chdir(wd);
+            }
         }
 
         for (const src of commander.args) {

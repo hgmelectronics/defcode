@@ -1,6 +1,6 @@
 {
   "name": "defcode",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "Run a JS file's exported function with the contents of another file as its argument.",
   "main": "index.js",
   "bin": {
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/hgmelectronics/defcode#readme",
   "dependencies": {
     "commander": "^2.19.0",
-    "js-yaml": "^3.12.0"
+    "js-yaml": "^3.12.0",
+    "yaml-include": "^1.2.0"
   }
 }

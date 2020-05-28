@@ -14,6 +14,8 @@ It rewrites output files only when they change, to minimize the work done by bui
 
 Multiple generator sources can be passed on one command line. Note that this does not make sense with the `-o`,`--output` option, so all generator sources need to be named `<output file name>.js` to pass multiple sources on one command line.
 
+YAML files containing [`yaml-include`](https://www.npmjs.com/package/yaml-include)-style tags are supported. It is not necessary to run `defcode` from the same directory as the input YAML file; it will temporarily change to that directory while loading.
+
 ## Options
 
 ### `-d`, `--def`
